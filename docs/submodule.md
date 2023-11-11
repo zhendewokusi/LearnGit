@@ -32,3 +32,16 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 
 
 注意 DbConnector 记录的 160000 模式。 这是 Git 中的一种特殊模式,它本质上意味着你是将一次提交记作一项目录记录的,而非将它记录成一个子目录或者一个文件。
+
+
+```shell
+➜  LearnGit git:(main) ✗ git diff --cached
+--cached           -- show diff between index and named commit
+➜  LearnGit git:(main) ✗ git diff --submodule
+--submodule  -- select output format for submodule differences
+➜  LearnGit git:(main) ✗ git diff --submodule=
+diff   -- show differences
+log    -- list commits like git submodule does
+short  -- show pairs of commit names
+
+```
