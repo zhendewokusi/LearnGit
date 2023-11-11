@@ -29,11 +29,35 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 
 # 子模块
 
+## 子模块的思想
 
+## 使用子模块
+![init_submodule](../image/git_1.png)
+![init_submodule](../image/git_2.png)
+![init_submodule](../image/git_3.png)
+![init_submodule](../image/git_4.png)
 
-注意 DbConnector 记录的 160000 模式。 这是 Git 中的一种特殊模式,它本质上意味着你是将一次提交记作一项目录记录的,而非将它记录成一个子目录或者一个文件。
+由于 .gitmodules 文件中的 URL 是人们首先尝试克隆/拉取的地方,因此请尽可能确保你使用的URL 大家都能访问。 例如,若你要使用的推送 URL 与他人的拉取 URL 不同,那么请使用他人能访问到的 URL。 你也可以根据自己的需要,通过在本地执行 `git config submodule.<文件名>.url <私有URL>` 来覆盖这个选项的值。 如果可行的话,一个相对路径会很有帮助。
 
+![init_submodule](../image/git_5.png)
+![init_submodule](../image/git_7.png)
 
+注意 test 记录的 160000 模式。 这是 Git 中的一种特殊模式,它本质上意味着你是将一次提交记作一项目录记录的,而非将它记录成一个子目录或者一个文件。
+
+如果你想看更细致的差异输出，给`git diff`加上`--submodule`选项：
+
+![init_submodule](../image/git_6.png)
+
+## 克隆含有子模块的项目
+
+![clone_branch_rep](../image/git_17.png)
+这里`-b`是指定克隆远程仓库的哪个分支，不设置的话就是默认分支。
+可以看到目前`test`目录是空的，必须运行下面两个命令:git submodule init 用来初始化本地配置文件,而 git submodule update 则从该项目中抓取所有数据并检出父项目中列出的合适的提交。
+![clone_branch_rep](../image/git_18.png)
+可以看到下面的`5005ec0`这表示当前的`HEAD`处于"detached HEAD"状态，而不是在分支上。这说明我切换到的是一个特定的提交而不是分支。如果要将其合并到main分支上，就需要`merge`。
+![clone_branch_rep](../image/git_19.png)
+
+## 跨越模块的修改
 ```shell
 ➜  LearnGit git:(main) ✗ git diff --cached
 --cached           -- show diff between index and named commit
@@ -43,5 +67,8 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 diff   -- show differences
 log    -- list commits like git submodule does
 short  -- show pairs of commit names
-
 ```
+
+
+
+
