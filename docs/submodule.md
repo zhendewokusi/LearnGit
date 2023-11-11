@@ -57,6 +57,7 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 可以看到下面的`5005ec0`这表示当前的`HEAD`处于"detached HEAD"状态，而不是在分支上。这说明我切换到的是一个特定的提交而不是分支。如果要将其合并到main分支上，就需要`merge`。
 ![clone_branch_rep](../image/git_19.png)
 
+## 跨越模块的修改
 ```shell
 ➜  LearnGit git:(main) ✗ git diff --cached
 --cached           -- show diff between index and named commit
