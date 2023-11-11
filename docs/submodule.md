@@ -43,5 +43,9 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 diff   -- show differences
 log    -- list commits like git submodule does
 short  -- show pairs of commit names
-
 ```
+
+
+由于 .gitmodules 文件中的 URL 是人们首先尝试克隆/拉取的地方,因此请尽可能确保你使用的URL 大家都能访问。 例如,若你要使用的推送 URL 与他人的拉取 URL 不同,那么请使用他人能访问到的 URL。 你也可以根据自己的需要,通过在本地执行 git configsubmodule.<文件名>.url <私有URL> 来覆盖这个选项的值。 如果可行的话,一个相对路径会很有帮助。
+
+
