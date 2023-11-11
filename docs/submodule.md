@@ -55,6 +55,8 @@ Git的所有数据都会在存储前计算校验和，以校验和引用,机制�
 可以看到目前`test`目录是空的，必须运行下面两个命令:git submodule init 用来初始化本地配置文件,而 git submodule update 则从该项目中抓取所有数据并检出父项目中列出的合适的提交。
 ![clone_branch_rep](../image/git_18.png)
 可以看到下面的`5005ec0`这表示当前的`HEAD`处于"detached HEAD"状态，而不是在分支上。这说明我切换到的是一个特定的提交而不是分支。如果要将其合并到main分支上，就需要`merge`。
+![clone_branch_rep](../image/git_19.png)
+
 ```shell
 ➜  LearnGit git:(main) ✗ git diff --cached
 --cached           -- show diff between index and named commit
